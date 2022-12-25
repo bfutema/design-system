@@ -40,7 +40,7 @@ Devxperience Design System está disponível como pacote no verdaccio privado at
 - [ ] Table
 - [ ] Tooltip
 - [x] Text
-- [ ] Heading
+- [x] Heading
 
 ### Feedback
 
