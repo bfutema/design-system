@@ -12,6 +12,7 @@
   "keywords": [],
   "author": "Bruno Futema <bruno.futema@outlook.com>",
   "dependencies": {
+    "polished": "^4.2.2",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
@@ -20,6 +21,7 @@
     "@devxperience/ts-config": "*",
     "@types/react": "^18.0.23",
     "@types/react-dom": "^18.0.7",
+    "@types/react-window": "^1.8.5",
     "@types/styled-components": "^5.1.26",
     "react": "^18.2.0",
     "tsup": "^6.3.0",

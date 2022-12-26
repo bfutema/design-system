@@ -41,4 +41,7 @@ export const colors = {
   quarter700: '#0B3DB2',
   quarter800: '#072A8F',
   quarter900: '#041D77',
+
+  neutral200: '#7C7C8A',
+  neutral800: '#202024',
 };
