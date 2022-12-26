@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { theme } from '../../styles';
+
 import { Container } from './styles';
 
 export interface TextProps {

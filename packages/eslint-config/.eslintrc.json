@@ -97,7 +97,7 @@
             "sibling",
             "index"
           ],
-          ["/.types/", "/.styles/"]
+          ["/^./types/", "/^./styles/"]
         ],
         "alphabetize": {
           "order": "asc",

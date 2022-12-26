@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 
 import { theme } from '../../styles';
+
 import { Size } from './types';
 
 const variants = {
