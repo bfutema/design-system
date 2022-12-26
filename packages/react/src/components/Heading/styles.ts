@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 
 import { theme } from '../../styles';
+import { Size } from './types';
 
 const variants = {
   size: {
@@ -31,13 +32,11 @@ const variants = {
   },
 };
 
-export type ISize = 'sm' | 'md' | 'lg' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl';
-
-interface IContainerProps {
-  size: ISize;
+interface ContainerProps {
+  size: Size;
 }
 
-export const Container = styled.h2<IContainerProps>`
+export const Container = styled.h2<ContainerProps>`
   color: ${theme.colors.white};
   font-family: ${theme.fonts.default};
   font-weight: ${theme.fontWeights.bold};

@@ -30,7 +30,7 @@
           "PascalCase"
         ],
         "custom": {
-          "regex": "^I[A-Z]",
+          "regex": "^[A-Z]",
           "match": true
         }
       }
@@ -58,6 +58,7 @@
     ],
     "no-nested-ternary": "off",
     "no-param-reassign": "off",
+    "no-plusplus": "off",
     "no-use-before-define": "off",
     "no-useless-constructor": "off",
     "prettier/prettier": [
@@ -87,12 +88,16 @@
       {
         "newlinesBetween": "always",
         "groups": [
+          "/^react/",
           "module",
+          "/^!@types|!@assets|!@components|!@constants|!@contexts|!@helpers|!@hooks|!@interfaces|!@locales|!@pages|!@routes|!@services|!@store|!@styles|!@utils/",
+          "/^@types|@assets|@components|@constants|@contexts|@helpers|@hooks|@interfaces|@locales|@pages|@routes|@services|@store|@styles|@utils/",
           [
             "parent",
             "sibling",
             "index"
-          ]
+          ],
+          ["/.types/", "/.styles/"]
         ],
         "alphabetize": {
           "order": "asc",

@@ -1,10 +1,11 @@
-import { Text, ITextProps } from '@devxperience/react';
+import { Text, TextProps } from '@devxperience/react';
 import type { StoryObj, Meta } from '@storybook/react';
 
 export default {
   title: 'Typography/Text',
   component: Text,
   args: {
+    size: 'md',
     children: 'Lorem ipsum dolor...',
   },
   argTypes: {
@@ -29,11 +30,11 @@ export default {
       },
     },
   },
-} as Meta<ITextProps>;
+} as Meta<TextProps>;
 
-export const Default: StoryObj<ITextProps> = {};
+export const Default: StoryObj<TextProps> = {};
 
-export const Big: StoryObj<ITextProps> = {
+export const Big: StoryObj<TextProps> = {
   args: {
     size: '9xl',
   },

@@ -1,12 +1,13 @@
 import React from 'react';
 
-import { Container, ISize } from './styles';
+import { Container } from './styles';
+import { Size } from './types';
 
-export interface IHeadingProps {
-  size?: ISize;
+export interface HeadingProps {
+  size?: Size;
   children: React.ReactNode;
 }
 
-export const Heading: React.FC<IHeadingProps> = ({ size = 'md', children }) => {
+export const Heading: React.FC<HeadingProps> = ({ size = 'md', children }) => {
   return <Container size={size}>{children}</Container>;
 };

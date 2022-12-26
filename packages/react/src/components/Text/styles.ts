@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 
 import { theme } from '../../styles';
+import { Size } from './types';
 
 const variants = {
   size: {
@@ -46,11 +47,11 @@ const variants = {
   },
 };
 
-interface IContainerProps {
-  size: keyof typeof theme.fontSizes;
+interface ContainerProps {
+  size: Size;
 }
 
-export const Container = styled.p<IContainerProps>`
+export const Container = styled.p<ContainerProps>`
   color: ${theme.colors.white};
   font-family: ${theme.fonts.default};
   line-height: ${theme.lineHeights.base};

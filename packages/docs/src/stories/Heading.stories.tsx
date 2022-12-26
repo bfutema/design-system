@@ -1,10 +1,11 @@
-import { Heading, IHeadingProps } from '@devxperience/react';
+import { Heading, HeadingProps } from '@devxperience/react';
 import type { StoryObj, Meta } from '@storybook/react';
 
 export default {
   title: 'Typography/Heading',
   component: Heading,
   args: {
+    size: 'md',
     children: 'Lorem ipsum dolor...',
   },
   argTypes: {
@@ -15,11 +16,11 @@ export default {
       },
     },
   },
-} as Meta<IHeadingProps>;
+} as Meta<HeadingProps>;
 
-export const Default: StoryObj<IHeadingProps> = {};
+export const Default: StoryObj<HeadingProps> = {};
 
-export const Big: StoryObj<IHeadingProps> = {
+export const Big: StoryObj<HeadingProps> = {
   args: {
     size: '6xl',
   },
