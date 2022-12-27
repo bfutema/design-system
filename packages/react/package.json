@@ -12,6 +12,7 @@
   "keywords": [],
   "author": "Bruno Futema <bruno.futema@outlook.com>",
   "dependencies": {
+    "date-fns": "^2.0.0-beta.5",
     "polished": "^4.2.2",
     "styled-components": "^5.3.6"
   },
@@ -19,6 +20,7 @@
     "@devxperience/eslint-config": "*",
     "@devxperience/tokens": "*",
     "@devxperience/ts-config": "*",
+    "@types/date-fns": "^2.6.0",
     "@types/react": "^18.0.23",
     "@types/react-dom": "^18.0.7",
     "@types/react-window": "^1.8.5",

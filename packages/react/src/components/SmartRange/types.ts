@@ -21,3 +21,5 @@ export type Colors = {
 export type Appearance = 'standard' | 'filled' | 'outlined' | 'boxed';
 
 export type Corners = 'square' | 'rounded' | 'round';
+
+export type IValue = { original: Date[]; formatted: string; infoLabel: string };

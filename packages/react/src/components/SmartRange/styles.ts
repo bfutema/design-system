@@ -82,7 +82,7 @@ export const Container = styled.div<ContainerProps>`
     input {
       box-sizing: border-box;
 
-      height: 39px;
+      height: 38px;
 
       outline: 0;
 
