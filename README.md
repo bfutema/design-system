@@ -83,7 +83,7 @@ Devxperience Design System está disponível como pacote no verdaccio privado at
 
 ### Advanced
 
-- [ ] SmartRange
+- [x] SmartRange
 - [ ] ChatBot
 - [ ] Organogram
 - [ ] KanBan

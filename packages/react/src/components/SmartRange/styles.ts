@@ -79,9 +79,11 @@ export const Container = styled.div<ContainerProps>`
       border-color: ${theme.colors.neutral200};
     }
 
-    input {
+    * {
       box-sizing: border-box;
+    }
 
+    input {
       height: 38px;
 
       outline: 0;

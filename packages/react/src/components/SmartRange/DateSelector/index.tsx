@@ -1,7 +1,7 @@
-import React, { useCallback } from 'react';
+import React, { useRef, useCallback } from 'react';
 
-import { Colors, Corners } from '../types';
-import { CalendarOptions } from './CalendarOptions';
+import { Colors, Corners, IValue } from '../types';
+import { CalendarOptions, CalendarOptionsRef } from './CalendarOptions';
 import { FilterOptions } from './FilterOptions';
 
 import { Container, Actions } from './styles';
@@ -9,28 +9,46 @@ import { Container, Actions } from './styles';
 interface DateSelectorProps {
   colors: Colors;
   corners: Corners;
+  startDate: Date;
+  setStartDate: React.Dispatch<React.SetStateAction<Date>>;
   isFocused: boolean;
   isComparing: boolean;
   setIsComparing: React.Dispatch<React.SetStateAction<boolean>>;
+  minDate?: Date;
+  maxDate?: Date;
+  value: IValue;
   onApply: (original: Date[], infoLabel: string) => void;
   onClear: () => void;
-  children?: React.ReactNode;
+  onSelect: (original: Date[], infoLabel: string) => void;
+  onPrev: () => void;
+  onNext: () => void;
+  onCancel: () => void;
 }
 
 export const DateSelector: React.FC<DateSelectorProps> = ({
   colors,
   corners,
+  startDate,
+  setStartDate,
   isFocused,
   isComparing,
   setIsComparing,
+  minDate,
+  maxDate,
+  value,
   onApply,
   onClear,
+  onSelect,
+  onPrev,
+  onNext,
+  onCancel,
 }) => {
+  const calendarOptionsRef = useRef<CalendarOptionsRef>(null);
+
   const handleClear = useCallback(() => {
-    console.info('onClear');
-    // setIsComparing(false);
-    // onClear();
-    // calendarOptionsRef.current?.clear();
+    setIsComparing(false);
+    onClear();
+    calendarOptionsRef.current?.clear();
   }, [onClear, setIsComparing]);
 
   return (
@@ -43,9 +61,43 @@ export const DateSelector: React.FC<DateSelectorProps> = ({
         onClearInputs={handleClear}
       />
 
-      <CalendarOptions colors={colors} />
+      <CalendarOptions
+        ref={calendarOptionsRef}
+        colors={colors}
+        startDate={startDate}
+        setStartDate={setStartDate}
+        selectedDates={value.original}
+        isComparing={isComparing}
+        minDate={minDate}
+        maxDate={maxDate}
+        onSelect={onSelect}
+        onPrev={onPrev}
+        onNext={onNext}
+      />
 
-      <Actions colors={colors}>Actions</Actions>
+      <Actions colors={colors}>
+        <button type="button" onClick={onCancel}>
+          Cancelar
+        </button>
+
+        <button
+          type="button"
+          onClick={() => calendarOptionsRef.current?.localize()}
+        >
+          Localizar
+        </button>
+
+        <button type="button" onClick={handleClear}>
+          Limpar
+        </button>
+
+        <button
+          type="button"
+          onClick={() => onApply(value.original, value.infoLabel)}
+        >
+          Aplicar
+        </button>
+      </Actions>
     </Container>
   );
 };

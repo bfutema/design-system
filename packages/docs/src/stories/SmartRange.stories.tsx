@@ -20,6 +20,15 @@ export default {
       description: 'Altera o arredondamento das bordas',
       control: { type: 'inline-radio' },
     },
+    language: {
+      options: ['pt-BR', 'en-US'],
+      defaultValue: 'pt-BR',
+      description: 'Altera o UTC',
+      control: { type: 'inline-radio' },
+    },
+    onApply: {
+      action: 'onApply',
+    },
   },
 } as Meta<SmartRangeProps>;
 

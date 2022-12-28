@@ -1,5 +1,8 @@
 import React, { useRef, useMemo, useState, useCallback } from 'react';
 
+import { addMonths } from 'date-fns';
+
+import { useClickAway } from '../../hooks/useClickAway';
 import { theme } from '../../styles';
 import { Full } from '../../types/IFull';
 import { DateSelector } from './DateSelector';
@@ -13,6 +16,8 @@ export interface SmartRangeProps {
   appearance?: Appearance;
   corners?: Corners;
   language?: 'pt-BR' | 'en-US';
+  minDate?: Date;
+  maxDate?: Date;
   onApply: (selection: Date[]) => void;
 }
 
@@ -22,8 +27,11 @@ export const SmartRange: React.FC<SmartRangeProps> = ({
   appearance = 'boxed',
   corners = 'rounded',
   language = 'pt-BR',
+  minDate,
+  maxDate,
   onApply,
 }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [value, setValue] = useState<IValue>({
@@ -32,14 +40,21 @@ export const SmartRange: React.FC<SmartRangeProps> = ({
     infoLabel: '',
   });
 
-  const [isFocused, setIsFocused] = useState<boolean>(true);
+  const [startDate, setStartDate] = useState<Date>(
+    new Date(new Date().getFullYear(), new Date().getMonth(), 1),
+  );
+
+  const [isFocused, setIsFocused] = useState<boolean>(false);
   const [isComparing, setIsComparing] = useState<boolean>(false);
 
   const colors: Full<Colors> = useMemo(() => {
-    const { primary500, neutral800 } = theme.colors;
-
     return {
-      ...{ primary: primary500, background: neutral800 },
+      ...{
+        primary: theme.colors.primary500,
+        secondary: theme.colors.tertiary500,
+        background: theme.colors.neutral800,
+        shadow: theme.colors.black,
+      },
       ...colorsProps,
     };
   }, []);
@@ -107,8 +122,13 @@ export const SmartRange: React.FC<SmartRangeProps> = ({
     [onApply, onSelect],
   );
 
+  useClickAway(containerRef, () => setIsFocused(false), {
+    enabled: isFocused,
+  });
+
   return (
     <Container
+      ref={containerRef}
       colors={colors}
       appearance={appearance}
       corners={corners}
@@ -126,11 +146,20 @@ export const SmartRange: React.FC<SmartRangeProps> = ({
       <DateSelector
         colors={colors}
         corners={corners}
+        startDate={startDate}
+        setStartDate={setStartDate}
         isFocused={isFocused}
         isComparing={isComparing}
         setIsComparing={setIsComparing}
+        minDate={minDate}
+        maxDate={maxDate}
         onApply={handleApply}
         onClear={handleClear}
+        onSelect={onSelect}
+        onPrev={() => setStartDate((state) => addMonths(state, -1))}
+        onNext={() => setStartDate((state) => addMonths(state, +1))}
+        onCancel={() => setIsFocused(false)}
+        value={value}
       />
     </Container>
   );

@@ -7,15 +7,11 @@
  * Cor de fundo
  */
 
-/**
- * Funcionalidades
- * "variants.appearance": 'standard' | 'filled' | 'outlined' | 'boxed'
- * "variants.corners": 'square' | 'rounded' | 'round'
- */
-
 export type Colors = {
   primary: string;
+  secondary: string;
   background: string;
+  shadow: string;
 };
 
 export type Appearance = 'standard' | 'filled' | 'outlined' | 'boxed';
