@@ -1,13 +1,11 @@
-import React, { useRef, useMemo, useState, useCallback } from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 
 import { addMonths } from 'date-fns';
 
 import { useClickAway } from '../../hooks/useClickAway';
-import { theme } from '../../styles';
-import { Full } from '../../types/IFull';
 import { DateSelector } from './DateSelector';
 
-import { Container, Arrow } from './styles';
+import { Container, Arrow, defaultColors } from './styles';
 import { Appearance, Colors, Corners, IValue } from './types';
 
 export interface SmartRangeProps {
@@ -47,17 +45,7 @@ export const SmartRange: React.FC<SmartRangeProps> = ({
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [isComparing, setIsComparing] = useState<boolean>(false);
 
-  const colors: Full<Colors> = useMemo(() => {
-    return {
-      ...{
-        primary: theme.colors.primary500,
-        secondary: theme.colors.tertiary500,
-        background: theme.colors.neutral800,
-        shadow: theme.colors.black,
-      },
-      ...colorsProps,
-    };
-  }, []);
+  const colors = Object.assign(defaultColors, colorsProps);
 
   const onSelect = useCallback(
     (original: Date[], infoLabel: string) => {
@@ -122,9 +110,7 @@ export const SmartRange: React.FC<SmartRangeProps> = ({
     [onApply, onSelect],
   );
 
-  useClickAway(containerRef, () => setIsFocused(false), {
-    enabled: isFocused,
-  });
+  useClickAway(containerRef, () => setIsFocused(false), { enabled: isFocused });
 
   return (
     <Container

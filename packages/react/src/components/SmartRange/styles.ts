@@ -5,6 +5,13 @@ import { getContrastColor } from '../../utils';
 
 import { Appearance, Colors, Corners } from './types';
 
+export const defaultColors: Colors = {
+  primary: theme.colors.primary500,
+  secondary: theme.colors.secondary500,
+  background: theme.colors.neutral800,
+  shadow: theme.colors.black,
+};
+
 interface ContainerProps {
   colors: Colors;
   appearance: Appearance;
