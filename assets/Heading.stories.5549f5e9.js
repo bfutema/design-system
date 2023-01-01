@@ -1,0 +1,2 @@
+import{H as o}from"./index.6f999625.js";import"./index.7f33b667.js";import"./iframe.d9371feb.js";import"./jsx-runtime.c499e310.js";import"./polished.esm.46664283.js";const l={title:"Typography/Heading",component:o,args:{size:"md",children:"Lorem ipsum dolor..."},argTypes:{size:{options:["sm","md","lg","2xl","3xl","4xl","5xl","6xl"],control:{type:"inline-radio"}}}},n={},a={args:{size:"6xl"}},p=["Default","Big"];export{a as Big,n as Default,p as __namedExportsOrder,l as default};
+//# sourceMappingURL=Heading.stories.5549f5e9.js.map
