@@ -6,7 +6,7 @@ import styled, { css } from 'styled-components';
 
 import { IDate } from '../../../helpers/DateHelper';
 import { theme } from '../../../styles';
-import { container } from '../styles';
+import { getContrastColor } from '../../../utils';
 import { Colors, Corners } from '../types';
 
 interface ContainerProps {
@@ -38,7 +38,7 @@ export const Container = styled.div<ContainerProps>`
     background: ${colors.background};
     box-shadow: 0 0 24px ${colors.shadow};
 
-    color: ${container.getContrastColor(colors)};
+    color: ${getContrastColor({ color: colors.background })};
 
     margin-top: ${isFocused ? '0px' : '-8px'};
 
@@ -122,7 +122,7 @@ export const FilterOptionsStyles = {
       border-top-left-radius: 0;
       background: transparent;
 
-      color: ${container.getContrastColor(colors)};
+      color: ${getContrastColor({ color: colors.background })};
       font-size: ${theme.fontSizes.sm};
       white-space: nowrap;
 

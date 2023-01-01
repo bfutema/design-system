@@ -1,7 +1,7 @@
-import { getContrast } from 'polished';
 import styled, { css } from 'styled-components';
 
 import { theme } from '../../styles';
+import { getContrastColor } from '../../utils';
 
 import { Appearance, Colors, Corners } from './types';
 
@@ -13,10 +13,6 @@ interface ContainerProps {
 }
 
 export const container = {
-  getContrastColor: ({ background }: Colors) => {
-    const { black, white } = theme.colors;
-    return getContrast(background, white) < 3.5 ? black : white;
-  },
   getBorderColor: (colors: Colors, isFocused: boolean) => {
     if (isFocused) return colors.primary;
     return colors.background;
@@ -92,7 +88,7 @@ export const Container = styled.div<ContainerProps>`
       border-radius: inherit;
       background: inherit;
 
-      color: ${container.getContrastColor(colors)};
+      color: ${getContrastColor({ color: colors.background })};
       font-size: ${theme.fontSizes.sm};
 
       padding: 0 ${theme.space[3]};
