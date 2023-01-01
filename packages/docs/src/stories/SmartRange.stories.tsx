@@ -26,6 +26,15 @@ export default {
       description: 'Altera o UTC',
       control: { type: 'inline-radio' },
     },
+    colors: {
+      defaultValue: {
+        primary: '#7D40FF',
+        secondary: '#F92F7A',
+        background: '#202024',
+        shadow: '#0F0F10',
+      },
+      control: { type: 'object' },
+    },
     onApply: {
       action: 'onApply',
     },
