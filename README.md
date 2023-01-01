@@ -92,7 +92,7 @@ Devxperience Design System está disponível como pacote no verdaccio privado at
 
 ### Hooks
 
-- [ ] useClickAway
+- [x] useClickAway
 - [ ] useResize
 - [ ] useDrag
 - [ ] useDragScroll
