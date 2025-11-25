@@ -13,6 +13,8 @@
   "author": "Bruno Futema <bruno.futema@outlook.com>",
   "dependencies": {
     "date-fns": "^2.0.0-beta.5",
+    "framer-motion": "^12.23.24",
+    "jotai": "^2.15.1",
     "polished": "^4.2.2",
     "react-icons": "^4.7.1",
     "react-window": "^1.8.8",
