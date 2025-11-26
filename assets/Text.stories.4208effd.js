@@ -1,0 +1,2 @@
+import{T as o}from"./index.167c1a3b.js";import"./index.c3195998.js";import"./iframe.d68f2f1a.js";import"./jsx-runtime.7753c780.js";import"./polished.esm.46664283.js";const l={title:"Typography/Text",component:o,args:{size:"md",children:"Lorem ipsum dolor..."},argTypes:{size:{options:["xxs","xs","sm","md","lg","xl","2xl","4xl","5xl","6xl","7xl","8xl","9xl"],control:{type:"inline-radio"}}}},x={},p={args:{size:"9xl"}},m=["Default","Big"];export{p as Big,x as Default,m as __namedExportsOrder,l as default};
+//# sourceMappingURL=Text.stories.4208effd.js.map
